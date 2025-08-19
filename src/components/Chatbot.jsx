@@ -29,9 +29,9 @@ const Chatbot = () => {
     setMessages((prev) => [...prev, userMessage]);
     const question = inputValue;
 
-    // Update question history (keep last 7)
+    // Update question history (keep last 3)
     setQuestionHistory((prev) => {
-      const newHistory = [...prev, question].slice(-7);
+      const newHistory = [...prev, question].slice(-3);
       return newHistory;
     });
 
