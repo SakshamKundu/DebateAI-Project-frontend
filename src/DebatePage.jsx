@@ -243,9 +243,12 @@ const DebatePage = () => {
       return;
     }
 
-    const port = parliamentType === "british" ? "3002" : "3001";
+    const port =
+          parliamentType === "british"
+            ? "https://debate-backend-3.onrender.com"
+            : "https://debate-backendnp.onrender.com";
     const host = window.location.hostname;
-    const audioUrl = `http://${host}:${port}/api/tts-audio/${sessionId}`;
+    const audioUrl = `${port}/api/tts-audio/${sessionId}`;
     audioRef.current.src = audioUrl;
 
     const words = fullText.split(/\s+/);
@@ -377,9 +380,12 @@ const DebatePage = () => {
     setIsFeedbackLoading(true);
     setFeedbackData(null);
     try {
-      const port = parliamentType === "british" ? "3002" : "3001";
+      const port =
+          parliamentType === "british"
+            ? "https://debate-backend-3.onrender.com"
+            : "https://debate-backendnp.onrender.com";
       const host = window.location.hostname;
-      const apiUrl = `http://${host}:${port}/api/get-feedback`;
+      const apiUrl = `${port}/api/get-feedback`;
       const response = await fetch(apiUrl, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -504,9 +510,12 @@ const DebatePage = () => {
       });
 
       try {
-        const port = parliamentType === "british" ? "3002" : "3001";
+        const port =
+          parliamentType === "british"
+            ? "https://debate-backend-3.onrender.com"
+            : "https://debate-backendnp.onrender.com";
         const host = window.location.hostname;
-        const uploadUrl = `http://${host}:${port}/api/upload-papers`;
+        const uploadUrl = `${port}/api/upload-papers`;
 
         const response = await fetch(uploadUrl, {
           method: "POST",
@@ -539,10 +548,16 @@ const DebatePage = () => {
 
   useEffect(() => {
     if (view === "debate") {
-      const port = parliamentType === "british" ? "3002" : "3001";
+      const port =
+          parliamentType === "british"
+            ? "https://debate-backend-3.onrender.com"
+            : "https://debate-backendnp.onrender.com";
       const wsProtocol = window.location.protocol === "https:" ? "wss:" : "ws:";
       const wsHost = window.location.hostname;
-      const wsUrl = `${wsProtocol}//${wsHost}:${port}`;
+      const wsUrl =
+        parliamentType === "british"
+          ? "wss://debate-backend-3.onrender.com"
+          : "wss://debate-backendnp.onrender.com";
 
       const ws = new WebSocket(wsUrl);
       ws.onopen = () => {
