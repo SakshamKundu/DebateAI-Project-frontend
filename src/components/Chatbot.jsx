@@ -15,7 +15,7 @@ const Chatbot = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [questionHistory, setQuestionHistory] = useState([]); // Store last 7 questions
   const messagesEndRef = useRef(null);
-  const API_URL = "http://localhost:5000/api";
+  const API_URL = "https://debate-backend-u6zv.onrender.com/api";
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -111,7 +111,7 @@ const Chatbot = () => {
         <div className="fixed bottom-6 right-6 z-50">
           <div
             className={`bg-black-100/20 backdrop-blur-lg border border-gray-800 rounded-2xl shadow-2xl transition-all duration-300 ${
-              isMinimized ? "w-80 h-16 bg-gray-900/90": "w-96 h-[500px]"
+              isMinimized ? "w-80 h-16 bg-gray-900/90": "w-96 h-[px]"
             }`}
           >
             {/* Header */}
