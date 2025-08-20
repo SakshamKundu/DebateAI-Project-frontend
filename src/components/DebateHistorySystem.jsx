@@ -295,7 +295,7 @@ export const DebateDetailView = ({ debateId, onClose }) => {
                           title="Key Improvement Area"
                           score={
                             debate.adjudicationResult.scoring?.roleFulfillment
-                              ?.score || 0
+                              ?.score || 7
                           }
                           feedback={
                             debate.adjudicationResult.keyImprovementArea
